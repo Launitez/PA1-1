@@ -5,7 +5,7 @@ db = sqlite3.connect('test.db')
 print ("Opened database successfully")
 
 #creating db table
-db.execute('''CREATE TABLE Users
+db.execute('''CREATE TABLE IF NOT EXISTS Users
          (ID INT PRIMARY KEY AUTOINCREMENT,
          first_name           TEXT,
          last_name            TEXT,
@@ -13,7 +13,7 @@ db.execute('''CREATE TABLE Users
          password         TEXT,
          usd_balance DOUBLE NOT NULL);''')
 
-db.execute('''CREATE TABLE Stocks
+db.execute('''CREATE TABLE IF NOT EXISTS Stocks
          (ID INT PRIMARY KEY AUTOINCREMENT,
          stock_symbol VARCHAR(4) NOT NULL,
          stock_name VARCHAR(20) NOT NULL,
